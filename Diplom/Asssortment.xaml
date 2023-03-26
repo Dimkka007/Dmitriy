@@ -1,0 +1,277 @@
+﻿<Page x:Class="Diplom.Asssortment"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diplom"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Asssortment" >
+
+    <Grid Background="White">
+  
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Image Source="/Image/fon.jpg" Grid.Column="1" HorizontalAlignment="Left"></Image>
+
+
+            <TextBox Grid.Row="1" Grid.Column="1" FontSize="30" Name="Search" TextChanged="SearchAssort">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+
+
+            <TextBlock FontSize="30" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" >Меню</TextBlock>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <Button Width="100" Height="200" BorderThickness="0" Background="WhiteSmoke" Click="VseFilt">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="50"></Setter>
+                    </Style>
+                </Button.Resources>
+                <StackPanel>
+                    <Image Width="80" Source="/Image/vse-round.png"></Image>
+                    <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" FontSize="20">Всё</TextBlock>
+                </StackPanel>
+            </Button>
+            <Label></Label>
+            <Label></Label>
+            <Button Width="100" Height="200" BorderThickness="0" Background="WhiteSmoke" Click="SalFilt">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="50"></Setter>
+                    </Style>
+                </Button.Resources>
+                <StackPanel>
+                    <Image Width="80" Source="/Image/salat.png"></Image>
+                    <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" FontSize="20">Салаты</TextBlock>
+                </StackPanel>
+            </Button>
+            <Label></Label>
+            <Button Width="100" Height="200" BorderThickness="0" Background="WhiteSmoke" Click="SupFilt">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="50"></Setter>
+                    </Style>
+                </Button.Resources>
+                <StackPanel>
+                    <Image Width="80" Source="/Image/Syp.png"></Image>
+                    <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" FontSize="20">Супы</TextBlock>
+                </StackPanel>
+            </Button>
+            <Label></Label>
+            <Button Width="100" Height="200" BorderThickness="0" Background="WhiteSmoke" Click="GorFilt">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="50"/>
+                    </Style>
+                </Button.Resources>
+                <StackPanel>
+                    <Image Width="80" Source="/Image/gor.png"></Image>
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,30,0,0" FontSize="20">Горячие блюда</TextBlock>
+                </StackPanel>
+            </Button>
+            <Label></Label>
+            <Button Width="100" Height="200" BorderThickness="0" Background="WhiteSmoke" Click="GarFilt">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="50"></Setter>
+                    </Style>
+                </Button.Resources>
+                <StackPanel>
+                    <Image Width="80" Source="/Image/garnir.png"></Image>
+                    <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" FontSize="20">Гарниры</TextBlock>
+                </StackPanel>
+            </Button>
+            <Label></Label>
+            <Button Width="100" Height="200" BorderThickness="0" Background="WhiteSmoke" Click="HlebFilt">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="50"></Setter>
+                    </Style>
+                </Button.Resources>
+                <StackPanel>
+                    <Image Width="80" Source="/Image/hleb.png"></Image>
+                    <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" FontSize="20">Хлеб</TextBlock>
+                </StackPanel>
+            </Button>
+            <Label></Label>
+            <Button Width="100" Height="200" BorderThickness="0" Background="WhiteSmoke" Click="NapFilt">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="50"></Setter>
+                    </Style>
+                </Button.Resources>
+                <StackPanel>
+                    <Image Width="80" Source="/Image/napitok.png"></Image>
+                    <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" FontSize="20">Напитки</TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+
+
+        <Grid Grid.Column="3" Grid.RowSpan="4" Background="DimGray">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="750"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Button Name="Informat" Click="Info" HorizontalAlignment="Right" Margin="0,0,40,0" Width="50" Height="50" Background="Transparent" BorderThickness="0">
+                <Image Source="/Image/user-PhotoRoom.png" />
+            </Button>
+
+            <Button Name="Calculator" HorizontalAlignment="Right" Margin="0,0,90,0" Width="50" Height="50" Background="Transparent" BorderThickness="0" Click="Calculator_Click">
+                <Image Source="/Image/pngcalculator.png"></Image>
+            </Button>
+            
+            <StackPanel Orientation="Vertical" Name="Information" Visibility="Collapsed" Width="150" HorizontalAlignment="Left">
+                <TextBlock FontSize="15" Foreground="White" TextWrapping="Wrap" Name="qwe"></TextBlock>
+                
+                <Button Width="100" Height="25" Click="Exit" Content="Выйти"></Button>
+            </StackPanel>
+            
+
+            <StackPanel Orientation="Vertical" Grid.Row="1" Margin="20,0,0,0">
+                <TextBlock FontFamily="Times New Roman" FontSize="40" Foreground="White">Ваш заказ</TextBlock>
+                <ListView Name="Basket" MouseDoubleClick="Basket_MouseDoubleClick" Background="DimGray" BorderBrush="Transparent" BorderThickness="0">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Margin" Value="10"/>
+                            <Setter Property="Padding" Value="0"/>
+
+                        </Style>
+
+                    </ListView.ItemContainerStyle>
+                    
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Background="DimGray">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="50"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                
+
+                                <Border CornerRadius="15,15,15,15" Grid.Column="0" Width="100" Height="80">
+                                    <Border.Background>
+                                        <ImageBrush Stretch="Fill" ImageSource="{Binding Image}"/>
+                                    </Border.Background>
+                                </Border>
+                                <StackPanel Orientation="Vertical" Grid.Column="2">
+                                    <TextBlock FontFamily="Times New Roman" Foreground="LightGray" FontSize="13" TextWrapping="Wrap" Text="{Binding Name}"></TextBlock>
+                                    <TextBlock FontSize="16" Foreground="White" FontWeight="Bold" Margin="0,10,0,0">
+                                    <Run Text="{Binding Price}"></Run>
+                                    <Run Text="₽"></Run>
+                                    </TextBlock>
+                                </StackPanel>
+                                
+
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+            <TextBlock Name="PriceBox" Visibility="Hidden" Text="{Binding ElementName=Basket, Path=SelectedValue.Price}"></TextBlock>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock FontSize="25" Foreground="White">Итого:</TextBlock>
+                <Label Width="110"></Label>
+                <TextBlock Name="Itog" FontSize="25" Foreground="White"></TextBlock>
+                <TextBlock Text="₽" FontSize="25" Foreground="White"></TextBlock>
+            </StackPanel>
+
+            <Polygon Grid.Row="2" HorizontalAlignment="Center" Stroke="White" Points="0,0,270,0" Margin="23,45,25,40"></Polygon>
+            <Button Margin="0,20,0,0" Grid.Row="2" Width="150" Height="50" Content="Оплатить заказ" FontSize="20" Background="Pink" Click="Oplata">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="15"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+        <TextBlock Visibility="Hidden" FontSize="20" Name="Help" Text="{Binding Price}"></TextBlock>
+        <ListView Name="Menu" Grid.Row="3" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderThickness="0" ScrollViewer.CanContentScroll="False">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Margin" Value="10"/>
+                    <Setter Property="Padding" Value="0"/>
+                    
+                </Style>
+                
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Width="500" Height="200" Background="WhiteSmoke" BorderBrush="White" BorderThickness="1,1,1,1" CornerRadius="30,30,30,30">
+                        <Grid>
+                            
+
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                                
+                            
+                            <Border CornerRadius="30,0,0,30">
+                                <Border.Background>
+                                    <ImageBrush Stretch="Fill" ImageSource="{Binding Image}"/>
+                                </Border.Background>
+                            </Border>
+
+                            <StackPanel Grid.Column="1" Margin="15,0,0,0">
+                                <TextBlock FontWeight="Bold" FontSize="20" Text="{Binding Name}" TextWrapping="Wrap"></TextBlock>
+                                <TextBlock FontSize="15" Foreground="DimGray" Text="{Binding TypeMenu.Menu}"></TextBlock>
+                                <TextBlock FontSize="15" Foreground="DimGray" TextWrapping="Wrap" Text="{Binding Descriptoin}" Margin="0,5,0,0"></TextBlock>
+                                <TextBlock FontSize="15" Foreground="DimGray">
+                                    <Run Text="Вес:"></Run>
+                                    <Run Text="{Binding Weight}"></Run>
+                                    <Run Text="г."></Run>
+                                </TextBlock>
+                                <TextBlock FontSize="20" FontWeight="Bold" Margin="0,10,0,0">
+                                    <Run Text="{Binding Price}"></Run>
+                                    <Run Text="₽"></Run>
+                                </TextBlock>
+                            </StackPanel>
+                            <Button Click="AddBasket" Content="+" FontSize="20" Background="Pink" Grid.Column="1" Width="50" Height="50" FontWeight="Bold" VerticalAlignment="Bottom" HorizontalAlignment="Right" BorderThickness="0">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="15"></Setter>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </Grid>
+                        
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+</Page>

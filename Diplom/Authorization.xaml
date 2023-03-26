@@ -1,0 +1,148 @@
+﻿<Page x:Class="Diplom.Authorization"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diplom"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Authorization">
+
+    <Grid>
+
+        <MediaElement Name="myMediaElement" Stretch="Fill">
+            <MediaElement.Triggers>
+                <EventTrigger RoutedEvent="MediaElement.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <MediaTimeline Source="C:\Users\Admin\Desktop\Diplom\Diplom\bin\Debug\Fon.mkv" Storyboard.TargetName="myMediaElement"  RepeatBehavior="Forever" d:DesignTimeNaturalDuration="0" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </MediaElement.Triggers>
+        </MediaElement>
+
+        <Grid Background="DimGray" Width="350" Height="650" Opacity="0.9" Name="Reg" Visibility="Collapsed">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="40,20,0,0">
+                <Button Width="50" Height="50" Background="Transparent" BorderThickness="0" Click="Authoriz">
+                    <Image Source="/Image/Auth.png" />
+                </Button>
+                <Label Width="15"></Label>
+                <Button Width="50" Height="50" Background="Transparent" BorderThickness="0" Click="Registr">
+                    <Image Source="/Image/Reg.png" />
+                </Button>
+            </StackPanel>
+
+            <TextBox Text="{Binding Name}" Name="Imya" Width="250" Height="50" Background="Transparent" BorderThickness="0" Margin="0,0,0,340" Foreground="White" FontSize="14"></TextBox>
+            <TextBlock IsHitTestVisible="False" FontSize="14" Text="Имя" Grid.Row="2" Margin="60,130,0,0" VerticalAlignment="Top" Foreground="White">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text,ElementName=Imya}" Value="">
+                                <Setter Property="Visibility" Value="Visible"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <Polygon Grid.Row="2" HorizontalAlignment="Center" Stroke="White" Points="0,0,250,0" Margin="30,155,25,40"></Polygon>
+
+            <TextBox Text="{Binding Login}" Name="Loginn" Width="250" Height="50" Background="Transparent" BorderThickness="0" Margin="0,0,0,260" Foreground="White" FontSize="14"></TextBox>
+            <TextBlock IsHitTestVisible="False" FontSize="14" Text="Логин" Grid.Row="2" Margin="60,170,0,0" VerticalAlignment="Top" Foreground="White">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text,ElementName=Loginn}" Value="">
+                                <Setter Property="Visibility" Value="Visible"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <Polygon Grid.Row="2" HorizontalAlignment="Center" Stroke="White" Points="0,0,250,0" Margin="30,200,25,40"></Polygon>
+
+
+            <TextBox Text="{Binding Password}" Name="Parol" Width="250" Height="50" Background="Transparent" BorderThickness="0" Margin="0,0,0,190" Foreground="White" FontSize="14"></TextBox>
+            <TextBlock IsHitTestVisible="False" FontSize="14" Text="Пароль" Grid.Row="2" Margin="60,205,0,0" VerticalAlignment="Top" Foreground="White">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text,ElementName=Parol}" Value="">
+                                <Setter Property="Visibility" Value="Visible"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <Polygon Grid.Row="2" HorizontalAlignment="Center" Stroke="White" Points="0,0,250,0" Margin="30,235,25,40"></Polygon>
+
+
+
+            <Button Click="AddBD" Margin="0,200,0,0" Width="150" Height="50" Content="Зарегистрироваться" FontSize="15" Background="Yellow">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="15"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+        </Grid>
+
+        <Grid Background="DimGray" Width="350" Height="650" Opacity="0.9" Name="Auto" Visibility="Visible">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="40,20,0,0">
+                <Button Width="50" Height="50" Background="Transparent" BorderThickness="0">
+                    <Image Source="/Image/Auth.png" />
+                </Button>
+                <Label Width="15"></Label>
+                <Button Width="50" Height="50" Background="Transparent" BorderThickness="0" Click="Registr">
+                    <Image Source="/Image/Reg.png" />
+                </Button>
+            </StackPanel>
+
+            <TextBox Text="{Binding Login}" Name="Login" Width="250" Height="50" Background="Transparent" BorderThickness="0" Margin="0,0,0,260" Foreground="White" FontSize="14"></TextBox>
+            <TextBlock IsHitTestVisible="False" FontSize="14" Text="Логин" Grid.Row="2" Margin="60,170,0,0" VerticalAlignment="Top" Foreground="White">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text,ElementName=Login}" Value="">
+                                <Setter Property="Visibility" Value="Visible"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <Polygon Grid.Row="2" HorizontalAlignment="Center" Stroke="White" Points="0,0,250,0" Margin="30,200,25,40"></Polygon>
+
+
+            <TextBox  Name="Password" Width="250" Height="50" Background="Transparent" BorderThickness="0" Margin="0,0,0,60" Foreground="White" FontSize="14"></TextBox>
+            <TextBlock IsHitTestVisible="False" FontSize="14" Text="Пароль" Grid.Row="2" Margin="60,270,0,0" VerticalAlignment="Top" Foreground="White">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text,ElementName=Password}" Value="">
+                                <Setter Property="Visibility" Value="Visible"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <Polygon Grid.Row="2" HorizontalAlignment="Center" Stroke="White" Points="0,0,250,0" Margin="30,300,25,40"></Polygon>
+
+            <Button Margin="0,200,0,0" Width="150" Height="50" Content="Войти" FontSize="20" Background="Yellow" Click="Enter">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="15"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+        </Grid>
+    </Grid>
+</Page>

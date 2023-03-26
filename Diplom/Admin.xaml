@@ -1,0 +1,222 @@
+﻿<Page x:Class="Diplom.Admin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diplom"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Admin">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Image Source="/Image/fon.jpg" ></Image>
+
+        <Grid Width="250" Height="300" Grid.Row="1" Name="AddMenu" Visibility="Collapsed">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Width="110" Height="20" VerticalAlignment="Top" FontSize="15" Text="Наименование" TextWrapping="Wrap"></TextBlock>
+                    <TextBox Name="Nam" Text="{Binding Name}" Width="100" Height="20" VerticalAlignment="Top"></TextBox>
+                </StackPanel>
+
+                <Label></Label>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Width="110" Height="20" VerticalAlignment="Top" FontSize="15" Text="Вес" TextWrapping="Wrap"></TextBlock>
+                    <TextBox PreviewTextInput="Pri_PreviewTextInput" Name="Wei" Text="{Binding Weight}" Width="100" Height="20" VerticalAlignment="Top"></TextBox>
+                </StackPanel>
+
+                <Label></Label>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Width="110" Height="40" VerticalAlignment="Top" FontSize="15" Text="Стоимость в рублях" TextWrapping="Wrap"></TextBlock>
+                    <TextBox PreviewTextInput="Pri_PreviewTextInput" Name="Pri" Text="{Binding Price}" Width="100" Height="20" VerticalAlignment="Top"></TextBox>
+                </StackPanel>
+
+                <Label></Label>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Width="110" Height="40" VerticalAlignment="Top" FontSize="15" Text="Описание (состав)" TextWrapping="Wrap"></TextBlock>
+                    <TextBox Name="Des" Text="{Binding Descriptoin}" Width="100" Height="40" TextWrapping="Wrap" VerticalAlignment="Top"></TextBox>
+                </StackPanel>
+
+                <Label></Label>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Width="110" Height="40" VerticalAlignment="Top" FontSize="15" Text="Изображение"></TextBlock>
+                    <Button Background="Pink" FontSize="13" FontWeight="Bold" Content="Выбрать" Click="AddImage"></Button>
+
+                </StackPanel>
+
+                <Label></Label>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="15" Text="Выберите тип"></TextBlock>
+                    <ComboBox Name="Type" Width="100"  Text="{Binding TypeMenu}" DisplayMemberPath="Menu"></ComboBox>
+                </StackPanel>
+                <Button Background="Pink" FontSize="13" FontWeight="Bold" Content="Сохранить" Click="SaveMenu"></Button>
+                <TextBox Name="TextBox1" Text="{Binding Image}" Visibility="Collapsed"></TextBox>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Width="250" Height="250" Name="AddUs" Visibility="Collapsed">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Width="100" Height="20" VerticalAlignment="Top" FontSize="15" Text="Введите ФИО"></TextBlock>
+                    <TextBox Name="Na" Text="{Binding Name}" Width="100" Height="20" VerticalAlignment="Top"></TextBox>
+                </StackPanel>
+
+                <Label></Label>
+                
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Width="100" Height="20" VerticalAlignment="Top" FontSize="15" Text="Введите логин"></TextBlock>
+                    <TextBox Name="Lo" Text="{Binding Login}" Width="100" Height="20" VerticalAlignment="Top"></TextBox>
+                </StackPanel>
+
+                <Label></Label>
+                
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Width="110" Height="20" VerticalAlignment="Top" FontSize="15" Text="Введите пароль"></TextBlock>
+                    <TextBox Name="Pa" Text="{Binding Password}" Width="100" Height="20" VerticalAlignment="Top"></TextBox>
+                </StackPanel>
+
+                <Label></Label>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Width="130" Height="20" VerticalAlignment="Top" FontSize="15" Text="Повторите пароль"></TextBlock>
+                    <TextBox Name="Proverka" Width="100" Height="20" VerticalAlignment="Top"></TextBox>
+                </StackPanel>
+
+                <Label></Label>
+
+                <Button Background="Pink" FontSize="13" FontWeight="Bold" Content="Сохранить" Click="Save">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="15"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                
+            </StackPanel>
+        </Grid>
+        
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Height="40" VerticalAlignment="Top">
+            <Button Background="Pink" FontSize="13" FontWeight="Bold" Width="100" Height="30" Content="Пользователи" Click="Polzovat">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="15"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Background="Pink" FontSize="12" FontWeight="Bold" Width="100" Height="30" Content="Изменить меню" Click="MenuButton">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="15"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Bottom">
+            <Button Background="Pink" FontSize="13" FontWeight="Bold" Width="100" Height="30" Content="Удалить" Click="Delete">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="15"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            
+            <Button Background="Pink" FontSize="13" FontWeight="Bold" Width="100" Height="30" Content="Добавить" Click="Add">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="15"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+        <TextBox Width="200" Height="50" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" FontSize="30" Name="Search1" TextChanged="AdminSearch">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Button Background="Pink" FontSize="13" FontWeight="Bold" HorizontalAlignment="Right" Content="Выйти" Grid.Column="1" Height="25" Width="50" Click="Button_Click_1"></Button>
+        
+        <ListView Name="Polzovatel" Grid.Row="1" Grid.Column="1" Visibility="Collapsed">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Width="200" Height="200" Background="WhiteSmoke" BorderBrush="White" BorderThickness="1,1,1,1" CornerRadius="30,30,30,30">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                
+                                    <TextBlock TextWrapping="Wrap" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center" Text="{Binding Name}" Grid.Row="0"></TextBlock>
+                                    <TextBlock FontSize="13" HorizontalAlignment="Center" Text="{Binding TypeUser.Type}" Grid.Row="1"></TextBlock>
+                                    <TextBlock FontSize="13" HorizontalAlignment="Center" Grid.Row="2">
+                                        <Run Text="Логин: "></Run>
+                                        <Run Text="{Binding Login}"></Run>
+                                    </TextBlock>
+                                    <TextBlock FontSize="13" HorizontalAlignment="Center"  Grid.Row="3">
+                                        <Run Text="Пароль: "></Run>
+                                        <Run Text="{Binding Password}"></Run>
+                                    </TextBlock>
+                                    
+                        </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+        </ListView>
+        <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Name="Menu" Grid.Row="1" Grid.Column="1" Visibility="Collapsed">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Width="200" Height="200" Background="WhiteSmoke" BorderBrush="White" BorderThickness="1,1,1,1" CornerRadius="30,30,30,30">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            
+                                <TextBlock Grid.Row="0" FontWeight="Bold" FontSize="20" Text="{Binding Name}" TextWrapping="Wrap" Margin="5,0,0,0" ></TextBlock>
+                                <TextBlock Grid.Row="1" FontSize="15" Foreground="DimGray" Text="{Binding TypeMenu.Menu}"></TextBlock>
+                                <TextBlock Grid.Row="2" FontSize="15" Foreground="DimGray" TextWrapping="Wrap" Text="{Binding Descriptoin}" Margin="0,5,0,0"></TextBlock>
+                            
+                                <TextBlock Grid.Row="4" FontSize="20" FontWeight="Bold" Margin="0,10,0,0">
+                                    <Run Text="{Binding Price}"></Run>
+                                    <Run Text="₽"></Run>
+                                </TextBlock>
+                            
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
